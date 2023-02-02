@@ -1,0 +1,11 @@
+* {
+	box-sizing: border-box;
+	color: #333;
+}
+
+body {
+	background-color: #81a69b;
+	background-image: url('https://thumbs.dreamstime.com/b/group-pets-kitten-puppy-raw-isolated-white-41268955.jpg');
+	margin: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
