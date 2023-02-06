@@ -25,6 +25,9 @@ function App() {
 	const deleteTask = (id: number) => {
 		dispatch({ type: '[Todo] - DELETE TODO', id })
 	}
+	const updateTask = (id: number) => {
+		dispatch({ type: '[Todo] - UPDATE TODO', id, text: input })
+	}
 
 	const handleSubmit = (e: { preventDefault: () => void }) => {
 		e.preventDefault()
@@ -41,6 +44,7 @@ function App() {
 			<TodoAllLists
 				todos={state.todos}
 				deleteTask={deleteTask}
+				updateTask={updateTask}
 			/>
 		</div>
 	)

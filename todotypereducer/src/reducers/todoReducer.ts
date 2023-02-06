@@ -3,6 +3,7 @@ import { TodosType } from './todoTypes'
 type TodoActionType =
 	| { type: '[Todo] - ADD TODO'; text: string }
 	| { type: '[Todo] - DELETE TODO'; id: number }
+	| { type: '[Todo] - UPDATE TODO'; id: number; text: string }
 // | {type:'[Todo] - UPDATE TODO', id:number, text:string}
 
 export const todoReducer = (
@@ -24,6 +25,15 @@ export const todoReducer = (
 			return {
 				...state,
 				todos: filterTodo,
+			}
+		case '[Todo] - UPDATE TODO':
+			const updateTodo = [...state.todos].map((todo) =>
+				todo.id === action.id ? { ...todo, text: action.text } : todo
+			)
+
+			return {
+				...state,
+				todos: updateTodo,
 			}
 
 		default:

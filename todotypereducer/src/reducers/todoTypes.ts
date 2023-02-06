@@ -9,4 +9,5 @@ export type TodoType = {
 }
 export type FunctionTodo = {
 	deleteTask: (id: number) => void
+	updateTask: (id: number) => void
 }

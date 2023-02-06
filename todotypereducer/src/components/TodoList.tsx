@@ -5,9 +5,15 @@ type PropsType = {
 	id: number
 	text: string
 	deleteTask: FunctionTodo['deleteTask']
+	updateTask: FunctionTodo['updateTask']
 }
 
-export default function TodoList({ id, text, deleteTask }: PropsType) {
+export default function TodoList({
+	id,
+	text,
+	deleteTask,
+	updateTask,
+}: PropsType) {
 	return (
 		<div
 			style={{
@@ -22,7 +28,9 @@ export default function TodoList({ id, text, deleteTask }: PropsType) {
 				margin: '.2rem',
 			}}>
 			<h3> {text}</h3>
-			<button style={{ margin: '.2rem', padding: '.2rem' }}>
+			<button
+				style={{ margin: '.2rem', padding: '.2rem' }}
+				onClick={() => updateTask(id)}>
 				Update
 			</button>
 			<button onClick={() => deleteTask(id)}>x</button>

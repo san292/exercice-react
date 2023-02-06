@@ -1,13 +1,18 @@
-import { FunctionTodo, TodosType, TodoType } from '../reducers/todoTypes'
+import { FunctionTodo, TodoType } from '../reducers/todoTypes'
 
 import TodoList from './TodoList'
 
 type TodoAllType = {
 	todos: TodoType[]
 	deleteTask: FunctionTodo['deleteTask']
+	updateTask: FunctionTodo['updateTask']
 }
 
-export default function TodoAllLists({ todos, deleteTask }: TodoAllType) {
+export default function TodoAllLists({
+	todos,
+	deleteTask,
+	updateTask,
+}: TodoAllType) {
 	if (todos.length < 0) return <h1>aucune tache pour l'instant</h1>
 	return (
 		<div
@@ -21,6 +26,7 @@ export default function TodoAllLists({ todos, deleteTask }: TodoAllType) {
 					key={todo.id}
 					{...todo}
 					deleteTask={deleteTask}
+					updateTask={updateTask}
 				/>
 			))}
 		</div>
